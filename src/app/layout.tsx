@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Inter } from "next/font/google"; // Import Inter font
 import "./globals.css";
+import { cn } from "../lib/utils"; // Import the cn function
+import SideNavbar from "@/components/SideNavbar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -9,6 +11,11 @@ const geistSans = Geist({
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
+const inter = Inter({ // Initialize Inter font
+  variable: "--font-inter",
   subsets: ["latin"],
 });
 
@@ -25,9 +32,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={cn("min-h-screen bg-white text-black flex", inter.variable, geistSans.variable, geistMono.variable, "antialiased", { "debug-screens": process.env.NODE_ENV === 'development' })} // Use cn function
       >
-        {children}
+        {/*Sidebar*/}
+        <SideNavbar />
+        <div className="p-10 w-full">{children}</div>
       </body>
     </html>
   );
