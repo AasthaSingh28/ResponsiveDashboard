@@ -1,6 +1,5 @@
 import PageTitle from "@/components/PageTitle";
 import { Activity, CreditCard, DollarSign, Users } from "lucide-react";
-import Image from "next/image";
 import Card, { CardContent, CardProps } from "@/components/Card"
 import BarChart from "@/components/ui/BarChart";
 import SalesCard, { SalesProps } from "@/components/ui/SalesCard";

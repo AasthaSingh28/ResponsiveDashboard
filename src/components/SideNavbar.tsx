@@ -14,9 +14,7 @@ import {
 import { Button } from './ui/button';
 
 import {
-    useWindowSize,
-    useWindowWidth,
-    useWindowHeight,
+    useWindowWidth
 } from '@react-hook/window-size'
 
 export default function SideNavbar() {

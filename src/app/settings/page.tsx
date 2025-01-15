@@ -1,49 +1,40 @@
-"use client"
-import React from 'react';
-import { DataTable } from '@/components/DataTable'; // Corrected import
-
-
+"use client";
+import React from "react";
+import { DataTable } from "@/components/DataTable"; // Ensure this path is correct
 import { ColumnDef } from "@tanstack/react-table";
-import PageTitle from '@/components/PageTitle'; // Ensure this path is correct
-import { cn } from '@/lib/utils';
+import PageTitle from "@/components/PageTitle"; // Ensure this path is correct
 
-type Props = {};
-export default function Settingspage({ }: Props) {
-    // Example static data for testing
-    const data: Payment[] = [
+export default function Settingspage() {
+    // Static data for testing
+    const data: Setting[] = [
         { category: "Account", value: "true" },
         { category: "Notification", value: "true" },
         { category: "Theme", value: "Light" },
-        { category: "Language", value: "English" }
-
-
-
+        { category: "Language", value: "English" },
     ];
 
     return (
-        <div className='flex flex-col gap-5 w-full'>
-            <PageTitle title='Settings' />
+        <div className="flex flex-col gap-5 w-full">
+            <PageTitle title="Settings" />
             <DataTable columns={columns} data={data} />
         </div>
     );
 }
 
-export type Payment = {
+// Renamed and updated type definition
+type Setting = {
     category: string;
     value: string;
-}
+};
 
-export const columns: ColumnDef<Payment>[] = [
+// Columns definition
+const columns: ColumnDef<Setting>[] = [
     {
         accessorKey: "category",
         header: "Category",
-
     },
-
     {
         accessorKey: "value",
         header: "Value",
     },
 ];
-
-
